@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "homepage";
+}
+
+<h2>homepage</h2>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2>DropDown Using Sample</h2>
+            <hr />
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+            @using (Html.BeginForm())
+            {
+            <div class="form-horizontal">
+                 
+                <div class="form-group">
+                    <label class="col-md-2 control-label">City:</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("SelectedCityId", (SelectList)ViewBag.CitiesData, "Please choice your city", new { @class = "form-control dropdown" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Country:</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("SelectedCountryId", (SelectList)ViewBag.CountriesData, "Please choice your country", new { @class = "form-control dropdown" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <button class="btn btn-success" type="submit">Send</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                      <div class="alert alert-info">
+                          <b>Selected Country ID:</b>@ViewBag.SelectedCountryId
+                          <b>Selected City ID:</b>@ViewBag.SelectedCityId
+                      </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+           
+            }
+
+        </div>
+    </div>
+
+</div>
+
+@*
+    DropDownList ile DropDownListFor<> arasında şu fark var. DropDownListFor da gönderdiğimiz
+    modelimiz varsa modelle direkt bağlayabilmek için.
+    Bizim bu örneğimizde model kullanmıyoruz ve sayfaya model göndermşyoruz veriyi ViewBag aracılığıyla
+    gönderdiğimizden bu örnekte DropDownList kullanacağız.
+
+
+    String Optionlabel parametresi ddl de hiçbirşey seçmezsem ne yazsın onu veriyoruz.
+
+*@
+
